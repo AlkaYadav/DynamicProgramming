@@ -25,3 +25,27 @@ int LongestCommonSubsequence::LCS_recursive_helper(char *X,char *Y,int len1,int 
 		}
 	}
 }
+
+
+//Dynamic Programming version of LCS
+int LongestCommonSubsequence::LCS_dynamicpogramming(char *X,char *Y){
+	int len1=strlen(X);
+	int len2=strlen(Y);
+	int LCS[len1+1][len2+1];
+	for(int i=0;i<=len1;i++){
+		for(int j=0;j<=len2;j++){
+			LCS[i][j]=0;
+		}
+	}
+	for(int i=1;i<=len1;i++){
+			for(int j=1;j<=len2;j++){
+										if(X[i-1] == Y[j-1]){
+											LCS[i][j] = 1+LCS[i-1][j-1];
+										}
+										else{
+											LCS[i][j] = max(LCS[i][j-1],LCS[i-1][j]);
+										}
+			}
+	}
+	return LCS[len1][len2];
+}

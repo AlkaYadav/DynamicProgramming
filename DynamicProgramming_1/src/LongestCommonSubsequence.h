@@ -17,7 +17,7 @@ using namespace std;
 class LongestCommonSubsequence{
 	int LCS_recursive_helper(char *X,char *Y,int len1,int len2);
 public:
-	int LCS_dynamicpogramming(char *X,char *Y,int len1,int len2);
+	int LCS_dynamicpogramming(char *X,char *Y);
 	int LCS_recursive(char *X,char *Y);
 };
 
