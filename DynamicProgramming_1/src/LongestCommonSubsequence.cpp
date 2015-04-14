@@ -47,5 +47,26 @@ int LongestCommonSubsequence::LCS_dynamicpogramming(char *X,char *Y){
 										}
 			}
 	}
+
+	int length_lcs=LCS[len1][len2];
+	char print_lcs[length_lcs+1];
+	int i=len1;
+	int j=len2;
+	int index=length_lcs;
+	print_lcs[length_lcs]='\0';
+	while(i>0&&j>0){
+		if(X[i-1]==Y[j-1]){
+			print_lcs[index-1]=X[i-1];
+			i--;
+			j--;
+			index--;
+		}
+		else if(LCS[i-1][j]>LCS[i][j-1]){
+			i--;
+		}
+		else j--;
+	}
+
+	cout<<print_lcs<<endl;
 	return LCS[len1][len2];
 }

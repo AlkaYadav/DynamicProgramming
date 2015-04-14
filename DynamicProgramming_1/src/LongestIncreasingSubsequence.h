@@ -11,6 +11,7 @@
 class LongestIncreasingSubsequence{
 public:
 	int longestIncreasingSubsequence(int *X,int len);
+	void printLongestIncreasingSubsequence(int *X);
 };
 
 
